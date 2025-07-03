@@ -1,0 +1,31 @@
+
+services:
+  db:
+    build:
+      context: ./db
+    container_name: warenverkauf-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: classicmodels
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db/mysqlsampledatabase.sql:/docker-entrypoint-initdb.d/mysqlsampledatabase.sql:ro
+    networks:
+      - warenverkauf-net
+
+  java-app:
+    build:
+      context: ./java
+    container_name: warenverkauf-java
+    depends_on:
+      - db
+    env_file:
+      - .env
+    networks:
+      - warenverkauf-net
+
+networks:
+  warenverkauf-net:
+    driver: bridge

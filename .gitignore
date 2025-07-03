@@ -1,0 +1,24 @@
+.env
+*.env
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE/project files
+.idea/
+*.iml
+.vscode/
+
+# Build and dependency files
+target/
+bin/
+*.class
+
+# Logs and temp files
+*.log
+tmp/
+
+# Docker-related
+*.pid
+db/data/
