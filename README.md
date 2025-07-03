@@ -37,7 +37,7 @@ Dieses Projekt demonstriert eine Microservices-Architektur mit Docker Compose. E
 3. **Interaktive Nutzung der Java-App**
    - Um die App mit Terminal-Interaktion zu nutzen:
      ```powershell
-     docker compose up -d db
+     docker compose up -d warenverkauf-db
      docker compose run --rm -it warenverkauf-java-app
      ```
 > [!NOTE]
