@@ -20,7 +20,7 @@ Dieses Projekt demonstriert eine Microservices-Architektur mit Docker Compose. E
 - `.env` – Umgebungsvariablen für die App
 
 > [!IMPORTANT]
-> Damit das composen sowie die App funktioniert, muss man das `.env.example` zu `.env` umbennen.
+> Damit die compose.yaml Datei sowie die App funktioniert, muss man das `.env.example` zu `.env` umbennen.
 
 ## Schritt-für-Schritt Anleitung
 
@@ -37,13 +37,13 @@ Dieses Projekt demonstriert eine Microservices-Architektur mit Docker Compose. E
 3. **Interaktive Nutzung der Java-App**
    - Um die App mit Terminal-Interaktion zu nutzen:
      ```powershell
-     docker compose up -d warenverkauf-db
-     docker compose run --rm -it warenverkauf-java-app
+     docker compose up -d db
+     docker compose run --rm -it java-app
      ```
 > [!NOTE]
-> Man muss die Services unterschiedlich starten. Der DB container muss zuerst gestartet werden (am besten detachted `-d`), bevor die java-app gestartet wird (Achtung: Es muss ein interactive terminal `-it` sein damit es keinen Error gibt. (Die Java app ist dafür ausgebaut, dass es eine interaktive Konsole hat)).
+> Die Reihenfolge, in der Microservices gestartet werden, macht einen Unterschied. Der DB-Container muss zuerst gestartet werden (am besten detached `-d`), bevor die java-app gestartet wird. Achtung: Es muss ein interaktives Terminal `-it` sein, damit es keinen Error gibt. (Die java-App ist dafür ausgebaut, dass sie eine interaktive Konsole hat.)
 
 ## Hinweise
 - Die Umgebungsvariablen für die Datenbankverbindung werden über `.env` und `compose.yaml` gesetzt.
-- Die MySQL JDBC-Treiberdatei wird beim Build automatisch heruntergeladen.
+- Der MySQL JDBC-Driver wird beim Build automatisch heruntergeladen.
 - Die App ist als Konsolenanwendung ausgelegt und **benötigt ein interaktives Terminal** für Benutzereingaben.
